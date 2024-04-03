@@ -17,7 +17,8 @@ def load_images(folder):
             img = img / 255.0
             images.append(img)
             # Extract label from last character of filename
-            label = int(filename[-5])
+            label = int(filename.split('_')[-1].split('.')[0])
+            #label = int(filename[-5])
             labels.append(label)
     return np.array(images), np.array(labels)
 

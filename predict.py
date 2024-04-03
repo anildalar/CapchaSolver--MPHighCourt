@@ -4,7 +4,19 @@ import numpy as np
 from tensorflow import keras
 import tensorflow as tf
 
+def clear_split_folder():
+    # Path to the split folder
+    split_folder_path = os.path.join("test", "split")
+    
+    # Iterate over files in the split folder and remove them
+    for filename in os.listdir(split_folder_path):
+        file_path = os.path.join(split_folder_path, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
 
+# Clear the contents of the split folder
+clear_split_folder()
+    
 def split(image, captcha_code):
     # Read the modified grayscale image
     gray_image = cv2.imread(image, cv2.IMREAD_GRAYSCALE)
